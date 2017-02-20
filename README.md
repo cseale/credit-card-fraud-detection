@@ -1,46 +1,14 @@
-# Fake News 
-https://www.kaggle.com/mrisdal/fake-news
+# Credit Card Fraud Detection
+https://www.kaggle.com/dalpozz/creditcardfraud
 
-The latest hot topic in the news is fake news and many are wondering what data scientists can do to detect it and stymie its viral spread. This dataset is only a first step in understanding and tackling this problem. It contains text and metadata scraped from 244 [websites tagged as "bullshit" here][1] by the [BS Detector][2] Chrome Extension by [Daniel Sieradski][3]. 
+The datasets contains transactions made by credit cards in September 2013 by european cardholders. 
+This dataset present transactions that occurred in two days, where we have 492 frauds out of 284,807 transactions. The dataset is highly unbalanced, the positive class (frauds) account for 0.172% of all transactions.
 
-**Warning**: I did not modify the list of news sources from the BS Detector so as not to introduce my (useless) layer of bias; I'm not an authority on fake news. There may be sources whose inclusion you disagree with. It's up to you to decide how to work with the data and how you might contribute to "improving it". The labels of "bs" and "junksci", etc. do not constitute capital "t" Truth. If there are other sources you would like to include, start a discussion. If there are sources you believe should not be included, start a discussion or write a kernel analyzing the data. Or take the data and do something else productive with it. Kaggle's choice to host this dataset is not meant to express any particular political affiliation or intent.
+It contains only numerical input variables which are the result of a PCA transformation. Unfortunately, due to confidentiality issues, we cannot provide the original features and more background information about the data. Features V1, V2, ... V28 are the principal components obtained with PCA, the only features which have not been transformed with PCA are 'Time' and 'Amount'. Feature 'Time' contains the seconds elapsed between each transaction and the first transaction in the dataset. The feature 'Amount' is the transaction Amount, this feature can be used for example-dependant cost-senstive learning. Feature 'Class' is the response variable and it takes value 1 in case of fraud and 0 otherwise. 
 
-## Contents
+Given the class imbalance ratio, we recommend measuring the accuracy using the Area Under the Precision-Recall Curve (AUPRC). Confusion matrix accuracy is not meaningful for unbalanced classification.
 
-The dataset contains text and metadata from 244 websites and represents 12,999 posts in total from the past 30 days. The data was pulled using the [webhose.io][4] API; because it's coming from their crawler, not all websites identified by the BS Detector are present in this dataset. Each website was labeled according to the [BS Detector as documented here][5]. Data sources that were missing a label were simply assigned a label of "bs". There are (ostensibly) no genuine, reliable, or trustworthy news sources represented in this dataset (so far), so don't trust anything you read.
+The dataset has been collected and analysed during a  research collaboration of Worldline and the Machine Learning Group (http://mlg.ulb.ac.be) of ULB (Université Libre de Bruxelles) on big data mining and fraud detection.
+More details on current and past projects on related topics are available on http://mlg.ulb.ac.be/BruFence and http://mlg.ulb.ac.be/ARTML
 
-## Fake news in the news
-
-For inspiration, I've included some (presumably non-fake) recent stories covering fake news in the news. This is a sensitive, nuanced topic and if there are other resources you'd like to see included here, please leave a suggestion. From defining fake, biased, and misleading news in the first place to deciding how to take action (a blacklist is not a good answer), there's a lot of information to consider beyond what can be neatly arranged in a CSV file.
-
-* [How Fake News Spreads (NYT)][6]
-
-* [We Tracked Down A Fake-News Creator In The Suburbs. Here's What We Learned (NPR)][7]
-
-* [Does Facebook Generate Over Half of its Revenue from Fake News? (Forbes)][8]
-
-* [Fake News is Not the Only Problem (Points - Medium)][9]
-
-* [Washington Post Disgracefully Promotes a McCarthyite Blacklist From a New, Hidden, and Very Shady Group (The Intercept)][10]
-
-## Improvements
-
-If you have suggestions for improvements or would like to contribute, please let me know. The most obvious extensions are to include data from "real" news sites and to address the bias in the current list. I'd be happy to include any contributions in future versions of the dataset.
-
-## Acknowledgements
-
-Thanks to [Anthony][11] for pointing me to [Daniel Sieradski's BS Detector][12]. Thank you to Daniel Nouri for encouraging me to add a disclaimer to the dataset's page.
-
-
-  [1]: https://github.com/selfagency/bs-detector/blob/master/chrome/data/data.json
-  [2]: https://github.com/selfagency/bs-detector
-  [3]: https://github.com/selfagency
-  [4]: https://webhose.io/api
-  [5]: https://github.com/selfagency/bs-detector/blob/master/chrome/data/data.json
-  [6]: http://www.nytimes.com/2016/11/20/business/media/how-fake-news-spreads.html
-  [7]: http://www.npr.org/sections/alltechconsidered/2016/11/23/503146770/npr-finds-the-head-of-a-covert-fake-news-operation-in-the-suburbs
-  [8]: http://www.forbes.com/forbes/welcome/?toURL=http://www.forbes.com/sites/petercohan/2016/11/25/does-facebook-generate-over-half-its-revenue-from-fake-news
-  [9]: https://points.datasociety.net/fake-news-is-not-the-problem-f00ec8cdfcb#.577yk6s8a
-  [10]: https://theintercept.com/2016/11/26/washington-post-disgracefully-promotes-a-mccarthyite-blacklist-from-a-new-hidden-and-very-shady-group/
-  [11]: https://www.kaggle.com/antgoldbloom
-  [12]: https://github.com/selfagency/bs-detector
+Please cite: Andrea Dal Pozzolo, Olivier Caelen, Reid A. Johnson and Gianluca Bontempi. Calibrating Probability with Undersampling for Unbalanced Classification. In Symposium on Computational Intelligence and Data Mining (CIDM), IEEE, 2015
